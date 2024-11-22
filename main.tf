@@ -9,7 +9,7 @@ module "vpc" {
   public_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24"]
   private_subnet_cidrs = ["10.0.3.0/24", "10.0.4.0/24"]
   availability_zones = ["us-east-1a", "us-east-1b"]
-  vpc_name = "my-vpc"
+  vpc_name = var.vpc_name
 }
 
 # Call the ALB module
@@ -17,7 +17,7 @@ module "alb" {
   source = "./modules/alb"
   vpc_id = module.vpc.vpc_id
   public_subnets = module.vpc.public_subnets
-  alb_name = "my-alb"
+  alb_name = var.alb_name
 }
 
 # Call the EC2 Auto Scaling Group module
@@ -26,7 +26,7 @@ module "ec2" {
   vpc_id = module.vpc.vpc_id
   private_subnets = module.vpc.private_subnets
   instance_type = "t2.micro"
-  key_name = "my-key"
+  key_name = var.key_name
   alb_target_group_arn = module.alb.target_group_arn
 }
 
@@ -35,7 +35,7 @@ module "rds" {
   source = "./modules/rds"
   vpc_id = module.vpc.vpc_id
   private_subnets = module.vpc.private_subnets
-  db_name = "mydb"
-  db_username = "admin"
-  db_password = "securepassword123"
+  db_name = var.db_name
+  db_username = var.db_username
+  db_password = var.db_password
 }

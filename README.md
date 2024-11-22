@@ -1,4 +1,14 @@
-# Infrastrture project for Azure DevOps Demo Project
+# Infrastrture project for AWS DevOps Demo Project
+
+# Create Backend in S3 Bucket
+
+```
+aws s3api create-bucket --bucket terraform-state-bucket-demo2024 --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2
+
+aws s3api put-bucket-versioning --bucket terraform-state-bucket-demo2024 --versioning-configuration Status=Enabled
+
+
+```
 
 ## Initialize
 

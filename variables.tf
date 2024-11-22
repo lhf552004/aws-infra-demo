@@ -26,3 +26,13 @@ variable "db_name" {
   type        = string
   sensitive   = true
 }
+
+variable "vpc_name" {
+  description = "vpc name"
+  type        = string
+}
+
+variable "alb_name" {
+  description = "alb name"
+  type        = string
+}
