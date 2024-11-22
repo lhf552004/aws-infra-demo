@@ -1,0 +1,16 @@
+sensitive-values.tfvars
+
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Ignore Terraform lock files
+*.tfstate.lock.info
+
+# Ignore .terraform directory (for downloaded provider plugins and modules)
+.terraform/
+
+# Optional: Ignore variables files if they contain sensitive data
+*.tfvars
+
+tfplan
