@@ -1,6 +1,6 @@
 resource "aws_launch_template" "main" {
-  name_prefix = "web-app"
-  image_id    = "ami-0c2b8ca1dad447f8a"
+  name_prefix   = "web-app"
+  image_id      = var.image_id
   instance_type = var.instance_type
   key_name      = var.key_name
 
@@ -44,6 +44,7 @@ resource "aws_security_group" "main" {
 
 resource "aws_autoscaling_policy" "target_tracking" {
   name                   = "target-tracking-policy"
+  policy_type            = "TargetTrackingScaling"
   autoscaling_group_name = aws_autoscaling_group.main.name
 
   target_tracking_configuration {

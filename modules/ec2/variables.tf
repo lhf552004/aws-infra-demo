@@ -40,3 +40,9 @@ variable "desired_capacity" {
   type        = number
   default     = 3
 }
+
+variable "image_id" {
+  description = "Image Id for aws_launch_template"
+  type        = string
+}
+

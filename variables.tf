@@ -36,3 +36,14 @@ variable "alb_name" {
   description = "alb name"
   type        = string
 }
+
+variable "state_key" {
+  description = "Path to the Terraform state file in S3"
+  type        = string
+}
+
+variable "image_id" {
+  description = "Image Id for aws_launch_template"
+  type        = string
+}
+
